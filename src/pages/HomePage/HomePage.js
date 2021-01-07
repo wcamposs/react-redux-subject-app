@@ -1,8 +1,13 @@
+// Librarys
 import React from 'react';
 import {Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 
+//Components
+import CardComponent from '../../components/Card/CardComponent';
+
+// Styles
 import styles from './styles';
 
 class HomePage extends React.PureComponent {
@@ -11,12 +16,19 @@ class HomePage extends React.PureComponent {
   };
 
   render() {
-    console.log(this.props.current, this.state);
     return (
       <View style={styles.container}>
-        <Text style={styles.subjectTextDescription}>
-          You have {this.state.current.current.length} subjects.
-        </Text>
+        <View style={styles.subjectTextContainer}>
+          <Text style={styles.subjectTextDescription}>Your Subjects:</Text>
+
+          <Text style={styles.subjectTextCounter}>
+            You have {this.state.current.current.length} subject(s).
+          </Text>
+        </View>
+
+        <View style={styles.subjectCardContainer}>
+          <CardComponent />
+        </View>
 
         <TouchableOpacity
           style={styles.addSubjectsButton}

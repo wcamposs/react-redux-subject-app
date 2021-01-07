@@ -30,8 +30,6 @@ const subjectsReducer = (state = INITIAL_STATE, action) => {
       //add subject in current array
       current.push(action.payload);
 
-      console.log(current);
-
       //update the redux state to reflect the change
       const newState = {current, all_subjects};
 
