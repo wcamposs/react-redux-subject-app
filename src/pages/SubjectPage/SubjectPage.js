@@ -13,18 +13,21 @@ class SubjectPage extends React.Component {
       <View style={styles.container}>
         <Text style={styles.subjectsText}>Select subjects below!</Text>
 
-        <ScrollView>
-          {this.props.subjects.all_subjects.map((subject) => (
-            <TouchableOpacity
-              key={subject}
-              onPress={() => {
-                this.props.addedSubject(subject);
-                this.props.navigation.goBack();
-              }}>
-              <Text>{`Add ${subject}`}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
+        <View style={styles.subjectCardContainer}>
+          <ScrollView>
+            {this.props.subjects.all_subjects.map((subject) => (
+              <TouchableOpacity
+                style={styles.subjectButton}
+                key={subject}
+                onPress={() => {
+                  this.props.addedSubject(subject);
+                  this.props.navigation.goBack();
+                }}>
+                <Text>{`Add ${subject}`}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
       </View>
     );
   }
